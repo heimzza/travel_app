@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/constants.dart';
+import 'package:travel_app/components/app_bar.dart';
 import 'package:travel_app/size_config.dart';
 
 import 'components/body.dart';
+import '../../components/custom_navbar.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -10,30 +11,9 @@ class HomeScreen extends StatelessWidget {
     SizeConfig().init(context);
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: buildAppBar(),
+      appBar: buildAppBar(isTransparent: true),
       body: Body(),
-    );
-  }
-
-  AppBar buildAppBar() {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      leading: IconButton(
-        icon: Icon(
-          Icons.menu,
-          color: kIconColor,
-        ),
-        onPressed: () {},
-      ),
-      actions: [
-        IconButton(
-          icon: ClipOval(
-            child: Image.asset("assets/images/profile.png"),
-          ),
-          onPressed: () {},
-        ),
-      ],
+      bottomNavigationBar: CustomNavBar(),
     );
   }
 }
